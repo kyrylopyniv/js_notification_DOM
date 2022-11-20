@@ -4,7 +4,7 @@ const pushNotification = (posTop, posRight, title, description, type) => {
   const notification = document.createElement('div');
 
   document.body.append(notification);
-  notification.classList = 'notification';
+  notification.className = 'notification';
   notification.classList.add(type);
   notification.style.top = `${posTop}px`;
   notification.style.right = `${posRight}px`;
@@ -12,9 +12,15 @@ const pushNotification = (posTop, posRight, title, description, type) => {
   notification.innerHTML = `<h2 class="title">${title}</h2>
   <p>${description}</p>`;
 
-  setTimeout(() => {
+  setTimeout(removeN, 2000);
+
+  function removeN() {
     notification.remove();
-  }, 2000);
+  };
+
+  /* setTimeout(() => {
+    notification.remove();
+  }, 2000); */
 };
 
 pushNotification(10, 10, 'Title of Success message',
